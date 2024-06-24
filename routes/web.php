@@ -20,10 +20,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get("/movies" , [MoviesController::class, 'index'])->name('movies.index');
-
+    Route::get("/movies/{movie}" , [MoviesController::class, 'show'])->name('movies.show');
+    
     Route::get("/series" , [SeriesController::class, 'index'])->name('series.index');
-
+    Route::get("/series/{serie}" , [SeriesController::class, 'show'])->name('series.show');
+    
     Route::get("/genres" , [GenresController::class, 'index'])->name('genres.index');
+    Route::get("/genres/{genre}" , [GenresController::class, 'show'])->name('genres.show');
 });
 
 require __DIR__.'/auth.php';

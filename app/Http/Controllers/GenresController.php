@@ -15,4 +15,11 @@ class GenresController extends Controller
             'genres' => $genres,
         ]);
     }
+
+    public function show(Genre $genre)
+    {
+        return view('genres.show', [
+            'genre' => $genre,
+        ]);
+    }
 }
