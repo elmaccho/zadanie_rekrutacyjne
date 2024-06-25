@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Series') }}
+            {{ __('messages.nav.series') }}
         </h2>
     </x-slot>
 
@@ -12,16 +12,16 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                Plakat
+                                {{ (__('messages.table.poster')) }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Tytuł
+                                {{ (__('messages.table.title')) }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Fabuła
+                                {{ (__('messages.table.plot')) }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Zobacz więcej
+                                {{ (__('messages.table.see_more')) }}
                             </th>
                         </tr>
                     </thead>
@@ -38,7 +38,7 @@
                                     <p class="truncate" style="width: 700px;">{{ $serie->plot ? $serie->plot : "Brak danych o fabule" }}</p>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#">Szczegóły</a>
+                                    <a href={{ route('series.show', $serie->id) }}>{{ (__('messages.table.details')) }}</a>
                                 </td>
                             </tr>
                         @endforeach

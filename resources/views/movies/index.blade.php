@@ -12,34 +12,36 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
-                                    Plakat
+                                    {{ (__('messages.table.poster')) }}
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Tytuł
+                                    {{ (__('messages.table.title')) }}
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Fabuła
+                                    {{ (__('messages.table.plot')) }}
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Gatunek
+                                    {{ (__('messages.table.see_more')) }}
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($movies as $movie)                            
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4">
-                                    {{-- <img src={{ $movie['poster_path'] }} alt=""> --}}
+                                    <img src="https://image.tmdb.org/t/p/w185/{{$movie->poster_path}}" alt="">
                                 </th>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{-- <p>{{ $movie['original_title'] }}</p> --}}
+                                    <p>{{ $movie->title }}</p>
+                                </td>
+                                <td class="px-6 py-4" >
+                                    <p class="truncate" style="width: 700px;">{{ $movie->plot ? $movie->plot : "Brak danych o fabule" }}</p>
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{-- <p>{{ $movie['overview'] }}</p> --}}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{-- <p>{{ $movie['genres'] }}</p> --}}
+                                    <a href={{ route('movies.show', $movie->id) }}>Szczegóły</a>
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
             </div>

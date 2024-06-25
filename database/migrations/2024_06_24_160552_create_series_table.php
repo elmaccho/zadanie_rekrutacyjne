@@ -16,7 +16,7 @@ return new class extends Migration
             $table->json('title');
             $table->json('plot');
             $table->string('poster_path');
-            $table->string('genre');
+            $table->json('genre');
             $table->timestamps();
         });
     }
