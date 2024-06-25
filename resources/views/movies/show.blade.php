@@ -19,10 +19,12 @@
                         <h2 class="text-slate-400">{{ $movie->plot ? $movie->plot : __('messages.table.no_data') }}</h2>
                     </div>
                     <div class="genre">
-                        <h3 class="text-white">{{ __('messages.table.genre') }}:</h3>
-                        @foreach ($genresList as $genre)
-                            <h2 class="text-white">{{ $genre->name }}</h2>
-                        @endforeach
+                        <h3 class="text-white">{{ __('messages.table.genres') }}:</h3>
+                        @forelse ($genresList as $genre)
+                            <h2 class="text-slate-400">{{ $genre->name }}</h2>
+                            @empty
+                            <h2 class="text-slate-400">{{ __('messages.table.no_data') }}</h2>
+                        @endforelse
                     </div>
                 </div>
             </div>
