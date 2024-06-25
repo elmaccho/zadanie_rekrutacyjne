@@ -18,6 +18,9 @@
                                 <th scope="col" class="px-6 py-3">
                                     {{ __('messages.table.name') }}
                                 </th>
+                                <th scope="col" class="px-6 py-3">
+                                    {{ __('messages.table.see_more') }}
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,6 +31,9 @@
                                     </th>
                                     <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{ $genre->name }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href={{ route('genres.show', $genre->id) }}>{{ (__('messages.table.details')) }}</a>
                                     </td>
                                 </tr>
                             @endforeach

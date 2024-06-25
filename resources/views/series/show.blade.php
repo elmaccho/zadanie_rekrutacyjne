@@ -15,10 +15,17 @@
                         <h2 class="text-white text-4xl"><b>{{ $serie->title }}</b></h2>
                     </div>
                     <div class="plot">
-                        <h2 class="text-slate-400">{{ $serie->plot ? $serie->plot : "Brak danych o fabule" }}</h2>
+                        <h3 class="text-white">{{ __('messages.table.plot') }}:</h3>
+                        <h2 class="text-slate-400">{{ $serie->plot ? $serie->plot : __('messages.table.no_data') }}</h2>
                     </div>
                     <div class="genre">
-                        <h2 class="text-white">{{ $serie->genre ? $serie->genre : "Brak danych o gatunkach" }}</h2>
+                        <h3 class="text-white">{{ __('messages.table.genres') }}:</h3>
+                        @forelse ($genresList as $genre)
+                            <a class="text-slate-400" href={{ route('genres.show', $genre->id) }}>{{ $genre->name }}</a>
+                        @empty
+                            <h2 class="text-slate-400">{{ __('messages.table.no_data') }}</h2>
+                        @endforelse
+
                     </div>
                 </div>
             </div>

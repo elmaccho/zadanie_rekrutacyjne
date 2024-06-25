@@ -35,7 +35,7 @@
                                     <p>{{ $serie->title }}</p>
                                 </td>
                                 <td class="px-6 py-4" >
-                                    <p class="truncate" style="width: 700px;">{{ $serie->plot ? $serie->plot : "Brak danych o fabule" }}</p>
+                                    <p class="truncate" style="width: 700px;">{{ $serie->plot ? $serie->plot : __('messages.table.no_data') }}</p>
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href={{ route('series.show', $serie->id) }}>{{ (__('messages.table.details')) }}</a>

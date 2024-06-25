@@ -35,10 +35,10 @@
                                     <p>{{ $movie->title }}</p>
                                 </td>
                                 <td class="px-6 py-4" >
-                                    <p class="truncate" style="width: 700px;">{{ $movie->plot ? $movie->plot : "Brak danych o fabule" }}</p>
+                                    <p class="truncate" style="width: 700px;">{{ $movie->plot ? $movie->plot : __('messages.table.no_data') }}</p>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href={{ route('movies.show', $movie->id) }}>Szczegóły</a>
+                                    <a href={{ route('movies.show', $movie->id) }}>{{ (__('messages.table.details')) }}</a>
                                 </td>
                             </tr>
                         @endforeach

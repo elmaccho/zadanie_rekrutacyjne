@@ -28,10 +28,13 @@ return [
         'poster' => "Plakat",
         'title' => "Tytuł",
         'plot' => "Fabuła",
+        'genres' => "Gatunki",
         'see_more' => "Zobacz więcej",
         'details' => "Szczegóły",
         'name' => 'Nazwa',
-        
+        'movies_where_genre' => 'Filmy z gatunku',
+        'series_where_genre' => 'Seriale z gatunku',
+        'no_data' => 'Brak Danych',
     ]
 
 ];

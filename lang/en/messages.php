@@ -28,9 +28,13 @@ return [
         'poster' => "Poster",
         'title' => "Title",
         'plot' => "Plot",
+        'genres' => "Genres",
         'see_more' => "See more",
         'details' => "Details",
         'name' => "Name",
+        'movies_where_genre' => 'Movies from the genre',
+        'series_where_genre' => 'Series from the genre',
+        'no_data' => 'No data',
     ]
 
 ];

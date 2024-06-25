@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\Serie;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -28,8 +29,12 @@ class SeriesController extends Controller
 
     public function show(Serie $serie)
     {
+        $genresArray = json_decode($serie->genre, true);   
+        $genresList = Genre::whereIn('id', $genresArray)->get();
+
         return view('series.show', [
             'serie' => $serie,
+            'genresList' => $genresList,
         ]);
     }
 }

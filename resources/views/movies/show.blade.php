@@ -15,10 +15,14 @@
                         <h2 class="text-white text-4xl"><b>{{ $movie->title }}</b></h2>
                     </div>
                     <div class="plot">
-                        <h2 class="text-slate-400">{{ $movie->plot ? $movie->plot : "Brak danych o fabule" }}</h2>
+                        <h3 class="text-white">{{ __('messages.table.plot') }}:</h3>
+                        <h2 class="text-slate-400">{{ $movie->plot ? $movie->plot : __('messages.table.no_data') }}</h2>
                     </div>
                     <div class="genre">
-                        <h2 class="text-white">{{ $movie->genre ? $movie->genre : "Brak danych o gatunkach" }}</h2>
+                        <h3 class="text-white">{{ __('messages.table.genre') }}:</h3>
+                        @foreach ($genresList as $genre)
+                            <h2 class="text-white">{{ $genre->name }}</h2>
+                        @endforeach
                     </div>
                 </div>
             </div>

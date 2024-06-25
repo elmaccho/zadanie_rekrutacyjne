@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\Movie;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -29,9 +30,13 @@ class MoviesController extends Controller
 
     public function show(Movie $movie)
     {
-        // dd($movie);
+        $genresArray = json_decode($movie->genre, true);
+        $genresList = Genre::whereIn('id', $genresArray)->get();
+
         return view('movies.show', [
             'movie' => $movie,
+            'genresList' => $genresList,
         ]);
     }
+    
 }
